@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="pull-left">
-            <h2>Laravel 8 CRUD Example</h2>
+            <h2>Laravel 10 CRUD Example</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-success" href="{{ route('products.create') }}">Create New Product</a>
@@ -28,7 +28,7 @@
     </tr>
     @foreach ($products as $product)
     <tr>
-        <td>{{ $product->id }}</td>\
+        <td>{{ $product->id }}</td>
         <td>{{ $product->name }}</td>
         <td>{{ $product->details }}</td>
         <td><form action="{{ route('products.destroy',$product->id) }}" method="POST">
@@ -42,5 +42,7 @@
     </tr>
     @endforeach
 </table>
+{{ $products->links() }}
+
 
 @endsection

@@ -8,7 +8,7 @@
     <title>Laravel 10 CRUD Application</title>
 </head>
 <body>
-    <h1>Laravel 10 CRUD Application</h1>
+
     <div class="container">
         <br>
         @yield('content')

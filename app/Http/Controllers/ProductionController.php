@@ -15,7 +15,7 @@ class ProductionController extends Controller
     public function index()
     {
         //
-        $products = Product::latest()->paginate(5);
+        $products = Product::latest()->paginate(4);
         
         return view('products.index', compact('products'))->with(request()->input('page'));
     }
@@ -59,7 +59,7 @@ class ProductionController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -70,7 +70,7 @@ class ProductionController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -82,7 +82,17 @@ class ProductionController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        //validate the input
+        $request->validate([
+            'name' => 'required',
+            'details' => 'required'
+        ]);
+
+        //create a new product
+        $product->update($request->all());
+
+        //redirect the user and send friendly message
+        return redirect()->route('products.index')->with('success','Product updated successfully');
     }
 
     /**
