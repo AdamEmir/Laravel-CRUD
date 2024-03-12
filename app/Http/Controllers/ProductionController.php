@@ -41,7 +41,7 @@ class ProductionController extends Controller
         //validate the input
         $request->validate([
             'name' => 'required',
-            'details' => 'required'
+            'detail' => 'required'
         ]);
 
         //create a new product
@@ -85,7 +85,7 @@ class ProductionController extends Controller
         //validate the input
         $request->validate([
             'name' => 'required',
-            'details' => 'required'
+            'detail' => 'required'
         ]);
 
         //create a new product
@@ -103,6 +103,11 @@ class ProductionController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        //delete the product
+        $product->delete();
+
+        //redirect the user and display success message
+        return redirect()->route('products.index')->with('success','Product deleted successfully');
+
     }
 }
