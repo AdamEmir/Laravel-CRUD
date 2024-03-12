@@ -35,7 +35,17 @@ class ProductionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate the input
+        $request->validate([
+            'name' => 'required',
+            'details' => 'required'
+        ]);
+
+        //create a new product
+        Product::create($request->all());
+
+        //redirect the user and send friendly message
+        return redirect()->route('products.index')->with('success','Product created successfully');
     }
 
     /**
