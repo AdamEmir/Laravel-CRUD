@@ -3,7 +3,21 @@
 @section('content')
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-3">
+        <div class="sidebar">
+            <div class="header">
+                <h3>Welcome, Adam</h3>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="">Dashboard</a></li>
+                    <li><a href="">Create New Product</a></li>
+                    <li><a href="">Book a Hotel</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
         <div class="pull-left">
             <h2>Laravel 10 CRUD Example</h2>
         </div>
